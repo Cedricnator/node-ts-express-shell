@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema({
         require: [ true, 'Email is required' ],
         unique: true
     },
+    emailValidated: { //* Cada vez que se crea, el email no está validado
+        type: Boolean,
+        default: false
+    },
     password: {
         type: String,
         require: [ true, 'Password is required' ]
