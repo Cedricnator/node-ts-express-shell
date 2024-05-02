@@ -35,8 +35,8 @@ export class AuthService {
     }
 
     public async loginUser( loginUserDto: LoginUserDto){
-        const user = await UserModel.findOne({ name: loginUserDto.name });
-        ( !user ) && CustomError.badRequest('User not found');
+        const user = await UserModel.findOne({ email: loginUserDto.email });
+        if(!user) throw CustomError.badRequest('User not found');
         try {
             
             // Comparar contraseñas
@@ -46,7 +46,7 @@ export class AuthService {
             console.log( loginUserDto.password )
             const isEqual = bcryptAdapter.compare( loginUserDto.password, user.password  );
             if(!isEqual) throw CustomError.badRequest('Invalid password');
-            
+
             const { password, ...userRest } = UserEntity.fromObject( user );
 
             return {

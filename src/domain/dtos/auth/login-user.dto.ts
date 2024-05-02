@@ -1,13 +1,13 @@
 export class LoginUserDto {
     constructor(
-        public readonly name:     string,
+        public readonly email:    string,
         public readonly password: string,
     ){}
 
     static login(object: { [key: string]: any}): [ string?, LoginUserDto?]{
-        const { name, password } = object;
-        if( !name ) return [ 'Missing name' ];
+        const { email, password } = object;
+        if( !email ) return [ 'Missing email' ];
         if( !password ) return [ 'Missing password' ];
-        return [ undefined, new LoginUserDto( name, password )];
+        return [ undefined, new LoginUserDto( email, password )];
     }
 }
