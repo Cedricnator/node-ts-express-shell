@@ -1,3 +1,4 @@
+//* Conección a la base de datos de mongo, que se instancia en el app.ts
 import mongoose from "mongoose";
 
 interface ConnectionOptions{

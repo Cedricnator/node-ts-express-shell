@@ -1,3 +1,4 @@
+//* Definición modelo o entidad usuario, utilizado por el ORM mongoose
 import mongoose from 'mongoose';
 
 // El schema es como luce nuestra entidad

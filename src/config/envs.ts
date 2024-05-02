@@ -1,6 +1,6 @@
+//* Obtiene y valida las variables de entorno
 import 'dotenv/config';
 import { get } from 'env-var';
-
 
 export const envs = {
 
@@ -8,6 +8,3 @@ export const envs = {
   MONGO_URL: get('MONGO_URL').required().asString(),
   MONGO_DB_NAME: get('MONGO_DB_NAME').required().asString(),
 }
-
-
-
