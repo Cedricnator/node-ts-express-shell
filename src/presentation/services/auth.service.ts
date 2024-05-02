@@ -22,12 +22,14 @@ export class AuthService {
             await user.save();
             // JWT <-- mantener la autenticacion
 
+            const token = await JwtAdapter.generateToken({ id: user.id });
+
             // Email de confirmación
 
             const { password, ...userRest } = UserEntity.fromObject( user );
             return { 
                 user:  userRest, 
-                token: 'ABC'
+                token: token
             };
         } catch (error) {
             throw CustomError.internalServer(`${ error }`);
